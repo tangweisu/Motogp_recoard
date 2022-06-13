@@ -4,7 +4,7 @@ import pandas as pd
 import re
 import bs4
 
-url = 'https://datamotogp.azurewebsites.net/GpResults/Index/123'
+url = 'https://datamotogp.azurewebsites.net/GpResults/Index/119'
 r = requests.get(url)
 web_content = r.text
 soup = BeautifulSoup(web_content, 'lxml')
@@ -20,11 +20,11 @@ for row in title:
         sec = str(int(rid-60.0))
         rid = min+'.'+sec
         lapData.append(rid)
-print('2021 Germen GP')
+print('ITA - Race')
 df = pd.DataFrame(
 {
     'Riders': Rider,
-    'Best' : lapData
+    'Best5' : lapData
 })
 df.index=df.index+1
 
